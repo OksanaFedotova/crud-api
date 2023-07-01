@@ -6,10 +6,10 @@ export default (request: IncomingMessage, response: ServerResponse) => {
   switch (request.url) {
     case ('/api/users'): 
       let body = "";
-      const uuid = randomUUID();
       request.on("data", (chunk) => {
        body += chunk.toString();
       });
+      const uuid = randomUUID();
       request.on('close', () => {
         const bodyRes = {
           ...JSON.parse(body),

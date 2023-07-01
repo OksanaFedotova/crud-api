@@ -13,7 +13,6 @@ const server = createServer((request: IncomingMessage, response: ServerResponse)
     switch (request.method) {
     case "GET":
       if (request.url === '/api/users') {
-        console.log("Url: " + request.url);
         response.writeHead(200, { "Content-Type": "application/json" });
         response.end(JSON.stringify(data));
       } else {
@@ -26,7 +25,7 @@ const server = createServer((request: IncomingMessage, response: ServerResponse)
       break
 
     case "PUT":
-      //put(request, response)
+      put(request, response)
       break
 
     case "DELETE":
@@ -40,4 +39,5 @@ const server = createServer((request: IncomingMessage, response: ServerResponse)
   }
 })
 
-server.listen(PORT, () => {console.log(`Server listening on port ${PORT}`)});
+//server.listen(PORT, () => {console.log(`Server listening on port ${PORT}`)});
+export {server, PORT}
