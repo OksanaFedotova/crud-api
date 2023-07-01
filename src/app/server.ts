@@ -16,12 +16,13 @@ const server = createServer((request: IncomingMessage, response: ServerResponse)
         console.log("Url: " + request.url);
         response.writeHead(200, { "Content-Type": "application/json" });
         response.end(JSON.stringify(data));
+      } else {
+         get(request, response)
       }
-      //get(request, response)
       break
 
     case "POST":
-      //post(request, response)
+      post(request, response)
       break
 
     case "PUT":
