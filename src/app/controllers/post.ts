@@ -17,7 +17,7 @@ export default (
       };
       data.push(bodyRes);
       response.writeHead(201, { "Content-Type": "application/json" });
-      response.end(JSON.stringify(data));
+      response.end(JSON.stringify(bodyRes));
       break;
     default:
       response.statusCode = 400;

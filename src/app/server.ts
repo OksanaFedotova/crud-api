@@ -13,27 +13,18 @@ const server = createServer(
   (request: IncomingMessage, response: ServerResponse) => {
     switch (request.method) {
       case "GET":
-        if (request.url === "/api/users") {
-          response.writeHead(200, { "Content-Type": "application/json" });
-          response.end(JSON.stringify(data));
-        } else {
-          get(request, response);
-        }
+        get(request, response);
         break;
-
       case "POST":
         getBody(request, response, post);
         break;
-
       case "PUT":
         getBody(request, response, put);
         break;
-
       case "DELETE":
         deleteUser(request, response);
         break;
       default:
-        // Send response for requests with no other response
         response.statusCode = 400;
         response.write("No Response");
         response.end();
