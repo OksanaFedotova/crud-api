@@ -17,7 +17,7 @@ export default (request: IncomingMessage, response: ServerResponse) => {
         }
         data.push(bodyRes);
         response.writeHead(201, { "Content-Type": "application/json" });
-        response.end(JSON.stringify(bodyRes));
+        response.end(JSON.stringify(data));
       })
     break;
     default:

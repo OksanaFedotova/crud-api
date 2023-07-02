@@ -29,7 +29,7 @@ const server = createServer((request: IncomingMessage, response: ServerResponse)
       break
 
     case "DELETE":
-      //deleteUser (request, response)
+      deleteUser (request, response)
       break
     default:
       // Send response for requests with no other response

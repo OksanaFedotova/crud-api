@@ -13,13 +13,16 @@ export default (request: IncomingMessage, response: ServerResponse) => {
        body += chunk.toString();
       });
       request.on('close', () => {
-        const bodyRes: IUser = JSON.parse(body);
-        const updatedData = data.map((user) => {
-          const userUpdated =  user.id === idUser ? {...user, ...bodyRes} : user;
-          return userUpdated;
+        const { username, age, hobbies}: IUser = JSON.parse(body);
+        data.forEach((user) => {
+          if (user.id === idUser) {
+            user.age = age;
+            user.username = username;
+            user.hobbies = hobbies;
+          }
         })
         response.writeHead(200, { "Content-Type": "application/json" });
-        response.end(JSON.stringify(updatedData));
+        response.end(JSON.stringify(data));
       })
     break;
     case(false):
