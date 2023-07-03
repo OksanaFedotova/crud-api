@@ -1,6 +1,7 @@
 import { IncomingMessage, ServerResponse } from "http";
 import getPostResponse from "../models/getPostResponse";
 import IUser from "../types/IUser";
+import isCluster from "../utils/isCluster";
 
 export default (
   request: IncomingMessage,

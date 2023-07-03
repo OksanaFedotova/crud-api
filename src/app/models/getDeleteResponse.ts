@@ -7,6 +7,7 @@ export default (url: string): [string, number] => {
     const index = data.findIndex(({ id }) => id === idUser);
     if (index !== -1) {
       data.splice(index, 1);
+      process.send? process.send({ cmd: 'delete', data: JSON.stringify(data) }) : null;
       return ["", 204];
     } else {
       return [`no user with id  ${idUser}`, 404];
