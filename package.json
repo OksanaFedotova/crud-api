@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "strart:dev": "nodemon src/index.ts",
+    "start:dev": "nodemon src/index.ts",
     "prettier": "prettier --write src/",
     "start:prod": "npx webpack && node ./dist/bundle.js",
     "test": "jest"
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.48.0",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.3.1",
     "eslint": "^8.31.0",
     "prettier": "^2.8.2",
     "uuid": "^9.0.0"

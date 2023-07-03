@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { createServer, IncomingMessage, ServerResponse } from "http";
 import get from "./controllers/get";
 import post from "./controllers/post";
