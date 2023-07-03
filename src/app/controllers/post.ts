@@ -8,12 +8,12 @@ export default (
   response: ServerResponse,
   body: IUser,
 ) => {
-  if (request.url) {
+  if (request.url && request.url === "/api/users") {
     const [message, statusCode] = getPostResponse(request.url, body);
     response.writeHead(statusCode, { "Content-Type": "application/json" });
     response.end(message);
   } else {
-    response.writeHead(500, { "Content-Type": "application/json" });
+    response.writeHead(404, { "Content-Type": "application/json" });
     response.end("wrong request");
   }
 };

@@ -11,7 +11,9 @@ export default (url: string, body: IUser): [string, number] => {
     };
     data.push(bodyRes);
     const statusCode = 201;
-    process.send? process.send({ cmd: 'get', data: JSON.stringify(data) }) : null;
+    process.send
+      ? process.send({ cmd: "get", data: JSON.stringify(data) })
+      : null;
     return [JSON.stringify(bodyRes), statusCode];
   } else {
     const statusCode = 400;
