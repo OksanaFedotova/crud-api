@@ -1,6 +1,5 @@
 import { IncomingMessage, ServerResponse } from "http";
-import { randomUUID } from "crypto";
-import data from "../utils/data";
+import getPostResponse from "../models/getPostResponse";
 import IUser from "../types/IUser";
 
 export default (
@@ -8,20 +7,12 @@ export default (
   response: ServerResponse,
   body: IUser,
 ) => {
-  switch (request.url) {
-    case "/api/users":
-      const uuid = randomUUID();
-      const bodyRes = {
-        ...body,
-        id: uuid,
-      };
-      data.push(bodyRes);
-      response.writeHead(201, { "Content-Type": "application/json" });
-      response.end(JSON.stringify(bodyRes));
-      break;
-    default:
-      response.statusCode = 400;
-      response.write(`CANNOT POST ${request.url}`);
-      response.end();
+  if (request.url) {
+    const [message, statusCode] = getPostResponse(request.url, body);
+    response.writeHead(statusCode, { "Content-Type": "application/json" });
+    response.end(message);
+  } else {
+    response.writeHead(500, { "Content-Type": "application/json" });
+    response.end("wrong request");
   }
 };

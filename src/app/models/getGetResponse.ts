@@ -1,4 +1,3 @@
-import { IncomingMessage, ServerResponse } from "http";
 import data from "../utils/data";
 import validateUuid from "../utils/validateUuid";
 

@@ -1,5 +1,5 @@
 interface IUser {
-  id: string;
+  //id: string | undefined;
   username: string;
   age: number;
   hobbies: string | undefined[];

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.ts",
+    "strart:dev": "nodemon src/index.ts",
     "prettier": "prettier --write src/",
-    "prod": "npx webpack && node ./dist/bundle.js",
+    "start:prod": "npx webpack && node ./dist/bundle.js",
     "test": "jest"
   },
   "repository": {
