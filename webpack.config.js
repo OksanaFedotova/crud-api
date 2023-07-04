@@ -13,11 +13,11 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: "ts-loader",
-        exclude: ["/node_modules/"],
+        exclude: ["/node_modules/", "/src/cluster/"],
       },
     ],
   },
   resolve: {
-    extensions: [".ts"],
+    extensions: [".ts", ".js"],
   },
 };
